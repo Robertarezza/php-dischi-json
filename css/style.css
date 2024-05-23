@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: #1d2d3c;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+.my_cardstyle {
+ background-color: #112030; 
+ color: white;
+ align-items: center
+}
+
+.my_img{
+    width: 80%;
+    margin-top: 20px;
+}
+
+.logo{
+    width: 5%;
+    margin-top: 2px;
+   
+}
+
+header {
+    background-color: #06131f;
+}
