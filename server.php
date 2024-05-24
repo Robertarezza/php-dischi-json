@@ -18,7 +18,11 @@ if (isset($_POST["action"]) && $_POST["action"] === "toggle-like") {
 
     $dischi_list[$disc_index]["like"] = !$dischi_list[$disc_index]["like"];
     file_put_contents("dischi.json", json_encode($dischi_list));
+    
 }
+
+
+
 
 
 //sistemo la risposta
