@@ -1,30 +1,35 @@
 
 <?php
 
+//prelevi il file e lo leggi
 $list_dischi_string = file_get_contents("dischi.json");
 
+//trasformazione in array
 $dischi_list = json_decode($list_dischi_string, true);
 
 
 // var_dump($dichi_array);
 
-//iterare sull'array
-foreach ($dischi_list as &$disco) {
-    $disco["like"] = true ;
+
+
+if (isset($_POST["action"]) && $_POST["action"] === "toggle-like") {
+    
+    $disc_index = $_POST["disc_index"];
+
+    $dischi_list[$disc_index]["like"] = !$dischi_list[$disc_index]["like"];
+    file_put_contents("dischi.json", json_encode($dischi_list));
 }
 
-// Codifica nuovamente l'array aggiornato in JSON
-$new_list = json_encode($dischi_list, JSON_PRETTY_PRINT);
 
-// Salva il nuovo JSON nel file
-file_put_contents("dischi.json", $new_list);
-
+//sistemo la risposta
 $dischi = [
     "result" => $dischi_list
 ];
 
-$json_list_dischi = json_encode($dischi);
 
+//mandiamo la risposta come l'abbiamo struttirata
+$json_list_dischi = json_encode($dischi); //string
+//comunica ch stiamo mandando un file json
 header("Content-Type: application/json");
 
 echo $json_list_dischi;

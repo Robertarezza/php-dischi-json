@@ -30,3 +30,13 @@ body {
 header {
     background-color: #06131f;
 }
+
+.my_icon:hover {
+    cursor: pointer;
+}
+
+
+
+.fa-star-0 {
+    color: yellow;
+}
