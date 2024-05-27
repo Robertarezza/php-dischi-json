@@ -41,6 +41,13 @@
       <main>
         <div class="container mt-5 pb-3">
           <div class="row row-cols-3 justify-content-center">
+            <div class="my_color col-12 d-flex">
+              <input class="form-check-input " type="checkbox" id="like" v-model="pref" >
+              <label class="form-check-label" for="like" >
+                  Mostra solo dischi preferiti
+              </label>
+              <button type="submit" class="btn btn-primary m-3" @click="addFilter">Filtra</button>
+          </div>
             <div class="col-md-6 col-lg-4 mb-4" v-for="(disco, index) in dischi">
               <div class="card my_cardstyle" style="width: 18rem">
                 <img
@@ -55,7 +62,7 @@
                   <p class="card-text text-center">{{ disco.year }}</p>
                   <!-- <span class="me-2" >{{ disco.like ? '&check;' : '&cross;' }}</span> -->
                   <div class="text-center my_icon" @click="taggleLike(index)">
-                    <i class="fa-regular fa-star" :class="{'fa-star': disco.like, 'fa-star-0': !disco.like}" title="Aggiungi/Rimuovi preferiti"></i>
+                    <i class="fa-regular fa-star" :class="{'fa-star-0': disco.like, 'fa-star': !disco.like}" title="Aggiungi/Rimuovi preferiti"></i>
                   </div>
                 </div>
               </div>
